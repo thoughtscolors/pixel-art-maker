@@ -43,22 +43,35 @@ function started() {
     console.log(pixel.length, "this is pixel array length");
 
     for (var i = 0; i < number; i++) {
-      let rgb = "rgb( ";
-      for (var i = 0; i < 3; i++) {
-        num = parseInt( Math.random() * 255 );
-        rgb += num + ", ";
-            }
-            console.log(rgb);
-            rgb = rgb.replace(/,([^,]*)$/, '$1') + ");";
-            console.log(rgb);
+
       numberpixels = parseInt(Math.random() * 900);
       console.log(numberpixels, "how many pixels");
       selectedpixel = pixel[numberpixels];
       console.log(selectedpixel, "selected pixel");
-      selectedpixel.style.backgroundColor = rgb;
+      selectedpixel.style.backgroundColor = getRandomColor();
+
     }
     // canvas.innerHTML
   });
+}
+
+var myVar;
+
+function myFunction() {
+    myVar = setInterval(alertFunc, 3000);
+}
+
+function alertFunc() {
+    alert("Hello!");
+}
+
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
 
 function selectColor() {
