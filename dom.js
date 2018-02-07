@@ -28,17 +28,31 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 function started() {
 
+  let paintButtons = document.querySelectorAll(".paintButton")
+  paintButtons.forEach(function(button) {
+    // add an event listener to each button
+    button.addEventListener('click', selectColor)
+  })
+
   let button = document.getElementById('changeColor')
+
+  let test = document.getElementsByClassName("test")[0]
+  test.addEventListener("click", colorChange);
+
+  let randomColorButton = document.getElementById("randomColor");
+  randomColorButton.addEventListener("click", randomColor)
+
 
   button.addEventListener("click", function(event) {
     let canvas = document.getElementsByClassName("canvas")[0];
     let color = document.getElementsByName("button");
+
     console.log("this is the canvas", canvas);
     console.log(color);
     canvas.style.color = "red";
-    event.target.style.background = "blue";
+    event.target.style.color = "blue";
     let pixel = document.getElementsByClassName("divpixels")
-    number = parseInt(Math.random() * 100);
+    number = parseInt(Math.random() * 200);
     console.log(number, "loop length");
     console.log(pixel.length, "this is pixel array length");
 
@@ -51,18 +65,29 @@ function started() {
       selectedpixel.style.backgroundColor = getRandomColor();
 
     }
-    // canvas.innerHTML
   });
+
 }
+
+function colorChange () {
+  event.target.style.backgroundColor = getRandomColor();
+}
+
+function randomColor (event) {
+  currentColor = getRandomColor();
+  var updateCurrentColorButton = document.getElementById("current");
+  updateCurrentColorButton.style.backgroundColor = currentColor;
+}
+
 
 var myVar;
 
 function myFunction() {
-    myVar = setInterval(alertFunc, 3000);
+  myVar = setInterval(alertFunc, 3000);
 }
 
 function alertFunc() {
-    alert("Hello!");
+  alert("Hello!");
 }
 
 function getRandomColor() {
@@ -74,9 +99,19 @@ function getRandomColor() {
   return color;
 }
 
-function selectColor() {
+var currentColor;
 
+function selectColor(event) {
+  currentColor = window.getComputedStyle(event.target).getPropertyValue("background-color");
+  var updateCurrentColorButton = document.getElementById("current");
+  updateCurrentColorButton.style.backgroundColor = currentColor;
 }
+
+function changeColor () {
+  event.target.style.backgroundColor = currentColor;
+}
+
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -84,15 +119,18 @@ document.addEventListener('DOMContentLoaded', function() {
   started();
 });
 
+// createAllPixels
 function myCreateFunction() {
   var canvas = document.getElementsByClassName("canvas")[0];
   console.log(canvas);
   for (var i = 0; i < 900; i++) {
-    event.target.style.color = "red";
-
-    var div = document.createElement("div");
-    div.classList.add("divpixels");
-    canvas.appendChild(div);
+    setTimeout(function() {
+      // could be its own function called createSinglePixel
+      var div = document.createElement("div");
+      div.classList.add("divpixels");
+      div.addEventListener("click", changeColor);
+      canvas.appendChild(div);
+    }, 2  * i)
   }
 }
 

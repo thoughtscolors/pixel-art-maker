@@ -1,52 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>PIXEL ART MUST PAINT MARIO VERY VERSATILE</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="dom.js">
+
+<head>
+  <meta charset="utf-8">
+  <title>PIXEL ART MUST PAINT MARIO VERY VERSATILE</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="dom.js">
+  </script>
+</head>
+
+<body>
+  <h1>PIXEL ART MUST PAINT MARIO VERY VERSATILE</h1>
 
 
-    </script>
-  </head>
-  <body>
-    <h1>PIXEL ART MUST PAINT MARIO VERY VERSATILE</h1>
+  <div class="canvas">
 
 
-    <div class="canvas">
+  </div>
 
 
-</div>
+  <div class="picker">
+    <button class="paintButton" id="button1"> </button>
+    <button class="paintButton" id="button2"> </button>
+    <button class="paintButton" id="button3"> </button>
+    <button class="paintButton" id="button4"> </button>
+    <button class="paintButton" id="button5"> </button>
+    <button class="paintButton" id="button6"> </button>
+    <button class="paintButton" id="button7"> </button>
+    <button class="paintButton" id="button8"> </button>
+    <button class="paintButton" id="button9"> </button>
+<br>
+    <!-- TODO: refactor to handle click below in the JS file (as paintButtons are handled) -->
+    <button onclick="myCreateFunction()" id="create">Create pixels</button>
+    <button id="current">Current Color</button>
+    <button type="button" id="randomColor" name="button">Random Color</button>
+    <button id="changeColor" name="button">Random/Random Function</button>
+  </div>
 
 
-<div class="picker">
-<button class="paintbutton" id="button1" onlclick="selectColor()"> </button>
-<button class="paintbutton" id="button2" onlclick="selectColor()"> </button>
-<button class="paintbutton" id="button3" onlclick="selectColor()"> </button>
-<button class="paintbutton" id="button4" onlclick="selectColor()"> </button>
-<button class="paintbutton" id="button5" onlclick="selectColor()"> </button>
-<button class="paintbutton" id="button6" onlclick="selectColor()"> </button>
-<button class="paintbutton" id="button7" onlclick="selectColor()"> </button>
-<button class="paintbutton" id="button8" onlclick="selectColor()"> </button>
-<button class="paintbutton" id="button9" onlclick="selectColor()"> </button>
-<button onclick="myCreateFunction()" id="create">Create pixels</button>
-<button id="changeColor">Change Color</button>
-</div>
+  <div class="test">
+    My color will change when I click it.
 
-    <section class="container-fluid">
-      <table class="table">
-        <tbody id="tbody">
-
-
-        </tbody>
-      </table>
-    </section>
-    <div>
-      My color will change when I click the button.
-
-    </div>
+  </div>
 
 
 
-  </body>
+</body>
+
 </html>

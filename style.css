@@ -136,7 +136,7 @@ h1 {
   float: left;
 }
 
-.paintbutton {
+.paintButton {
 	width: 50px;
 	height: 50px;
 	-moz-border-radius: 50px;
@@ -217,4 +217,23 @@ h1 {
   font-weight: bold;
   font-size: 120%;
 
+}
+
+#current {
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+#randomColor {
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.test {
+  width: 100px;
+  height: 200px;
+  background-color: #000000;
+  border-width: medium;
+  border-style: solid;
+  border-color: "blue";
 }
